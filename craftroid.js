@@ -1,12 +1,15 @@
 const mineflayer = require('mineflayer');
-const enablePerception = require('./view/eyes');
+const { enablePerception } = require('./controller/perceptionController');
 
 const bot = mineflayer.createBot({
   host: 'trupiloztaerzi.aternos.me',
-  username: 'CraftRoid'
+  username: 'CraftRoid',
+  version: '1.20.4'
 });
 
-bot.on('login', () => {
-  console.log('CraftRoid has logged in');
-  enablePerception(bot);
+enablePerception(bot, {
+  visionURL: 'http://localhost:3007',
+  outputPath: './view/screenshot.png',
+  llmURL: 'http://localhost:8080',
+  prompt: 'Describe the scene as if you are playing Minecraft.'
 });
