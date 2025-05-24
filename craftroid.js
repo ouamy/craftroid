@@ -1,5 +1,5 @@
 const mineflayer = require('mineflayer');
-const enablePerception = require('./view/perception');
+const enablePerception = require('./view/eyes');
 
 const bot = mineflayer.createBot({
   host: 'trupiloztaerzi.aternos.me',
@@ -9,12 +9,4 @@ const bot = mineflayer.createBot({
 bot.on('login', () => {
   console.log('CraftRoid has logged in');
   enablePerception(bot);
-});
-
-bot.on('error', err => {
-  console.error('Error:', err);
-});
-
-bot.on('end', () => {
-  console.log('CraftRoid has disconnected');
 });

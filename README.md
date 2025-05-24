@@ -18,6 +18,14 @@ CraftRoid is an autonomous Minecraft agent.
 ```bash
 sudo apt update
 sudo apt install npm
+sudo apt install -y build-essential cmake git curl unzip
+sudo apt install -y libopenblas-dev
+git clone https://github.com/ggerganov/llama.cpp
+mv llama.cpp brain
+cd brain
+cmake -B build
+cmake --build build -j
+llama-server -hf ggml-org/SmolVLM-256M-Instruct-GGUF
 ```
 
 ### 2. Install Node Version Manager (NVM)
@@ -48,16 +56,3 @@ Make sure your craftroid.js is configured with your server details:
 ```bash
 node craftroid.js
 ```
-
-
-
-npm install prismarine-viewer
-npm install canvas
-curl -fsSL https://ollama.com/install.sh | sh
-
-sudo apt update
-sudo apt install -y python3.8 python3.8-venv python3.8-dev build-essential \
-    libssl-dev libclang-dev cmake pkg-config libnss3 libatk-bridge2.0-0 libxcomposite1 \
-    libxdamage1 libxfixes3 libxrandr2 libgbm1 libasound2 libxshmfence1 libpango-1.0-0 libcups2 libgtk-3-0
-
-npm install canvas puppeteer sharp
